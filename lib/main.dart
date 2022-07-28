@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trip_app/widgets/make_page.dart';
 
 void main(List<String> args) {
   runApp(
@@ -35,19 +36,13 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        children: [
-          Container(
-            color: Colors.red,
-          ),
-          Container(
-            color: Colors.orange,
-          ),
-          Container(
-            color: Colors.teal,
-          )
-        ],
+      body: SafeArea(
+        child: PageView(
+          controller: _pageController,
+          children: [
+            makePage("assets/images/one.jpg"),
+          ],
+        ),
       ),
     );
   }
