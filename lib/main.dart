@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
-  runApp(const MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: Home(),
-  ));
+  runApp(
+    const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Home(),
+    ),
+  );
 }
 
 class Home extends StatefulWidget {
@@ -15,11 +17,37 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  late PageController _pageController;
+
+  void _onScroll() {
+    print("sss");
+  }
+
+  @override
+  void initState() {
+    _pageController = PageController(
+      initialPage: 0,
+    )..addListener(_onScroll);
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text("Trip Application UI"),
+    return Scaffold(
+      body: PageView(
+        controller: _pageController,
+        children: [
+          Container(
+            color: Colors.red,
+          ),
+          Container(
+            color: Colors.orange,
+          ),
+          Container(
+            color: Colors.teal,
+          )
+        ],
       ),
     );
   }
