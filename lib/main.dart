@@ -36,13 +36,14 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: PageView(
-          controller: _pageController,
-          children: [
-            makePage("assets/images/one.jpg"),
-          ],
-        ),
+      body: PageView(
+        controller: _pageController,
+        children: [
+          makePage("assets/images/one.jpg"),
+          makePage("assets/images/two.jpg"),
+          makePage("assets/images/three.jpg"),
+          makePage("assets/images/four.jpg"),
+        ],
       ),
     );
   }
